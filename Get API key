@@ -11,4 +11,4 @@ library and where says map click on see everything or see all, look for Places A
 
 Then in the menu you go back to APIs and services and below to library is credentials, click on it and then on create credentials
 and select API key and then close it, restrict key could cause you problems at the moment of runnig your code, and that´s it
-you have to API key, in the next file you will fine the programm Itself
+you have to API key, in the next file you will find an example of API use
