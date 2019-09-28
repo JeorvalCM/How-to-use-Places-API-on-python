@@ -14,6 +14,7 @@ import requests
 #Introduce your key
 key_api ='*******'
 
+#all the url are getting from the api documentation
 def search_nearby_places(key, lat, lon, distance):
     """
     Docstring
@@ -32,7 +33,7 @@ def search_nearby_places(key, lat, lon, distance):
     return results
     
  """
- You can changes the type if you want to have more results, but in this case we are looking for only restuarants
+ You can changes the type if you want to have more results, but in this case we are looking for only restaurants
  """
  #getting the restaurants nearby a location using the function
 restaurants = search_nearby_places(key_api,20.988459, -89.736768, 3000)
@@ -77,6 +78,7 @@ def find_place(PlaceName, Location):
 * Los Trompos Circuito
     """
     #variable declaration for the first place
+    #lat_lon are latitude and longitude coordinates
 lat_lon1 = (20.9999339,-89.6825716)
 place_name1 = 'McCarthy´s Irish Pub'
 place_ID1 = find_place(place_name1, lat_lon1)
@@ -100,7 +102,19 @@ D. Use the [*Place Details*](https://developers.google.com/places/web-service/de
 * Create a *find_reviews* function with the appropiate parameters. It must return a JSON with the results. 
 * Create a table with the following columns: Author Name, Language, Rating, Text, Time.
 """
-#defining ID
+def find_reviews(PlaceID, language):
+    """
+    Docstring:
+    Description: function that gets the review of a place given its ID
+    input: ID of the place we eant its reviews and the language wanted for the reviews
+    output: return a python dictionary that contain all the information related to the reviews
+    """
+    url = 'https://maps.googleapis.com/maps/api/place/details/json?place_id={}&language={}&fields=review&key={}'.format(PlaceID,language,key_api)
+    res = requests.get(url)
+    results = json.loads(res.content)
+    return results
+    
+#defining ID of the place
 ID = 'ChIJJyKKOKB0Vo8RCQcxkUw6hp8'
 
 #getting the reviews
