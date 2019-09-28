@@ -175,6 +175,7 @@ raw_dataframe = raw_dataframe.drop(get_nomatching, axis = 0)
 
 #selecting the useful columns
 colRel = ['name','place_id','rating','user_ratings_total'] 
+#eliminating the trompos of the dataframe
 dataframe = raw_dataframe[colRel].drop([4],axis = 0).reset_index(drop = True)
 dataframe.head(8)
 
