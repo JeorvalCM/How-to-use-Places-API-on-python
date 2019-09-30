@@ -14,7 +14,7 @@ import requests
 #Introduce your key
 key_api ='*******'
 
-#all the urll are getting from the api documentation
+#all the urls are getting from the api documentation
 def search_nearby_places(key, lat, lon, distance):
     """
     Docstring
